@@ -39,9 +39,37 @@ psexec \\127.0.0.1 -u root -p 1234 cmd.exe
 -u：指定選擇性使用者名稱以登入遠端電腦。
 -w：設定處理序的工作目錄（相對於遠端電腦）。
 ```
-
+## 補充
+### CMD下載方法
+使用 CMD 製作下載 down.vbs 
+```
+echo Download "http://127.0.0.1/", "test.txt" > down.vbs
+echo Function Download(strUrl, strFile) >> down.vbs
+echo Set xPost = CreateObject("MSXML2.ServerXMLHTTP") >> down.vbs
+echo xPost.Open "GET", strUrl,0 >> down.vbs
+echo xPost.Send() >> down.vbs
+echo Set sGet = CreateObject("ADODB.Stream") >> down.vbs
+echo sGet.Mode = 3 >> down.vbs
+echo sGet.Type = 1 >> down.vbs
+echo sGet.Open() >> down.vbs
+echo sGet.Write(xPost.responseBody) >> down.vbs
+echo sGet.SaveToFile strFile,2 >> down.vbs
+echo End Function >> down.vbs
+```
+Call down.vbs 
+```
+down.vbs
+pause
+```
 # Reference
 [pstools工具下載](https://docs.microsoft.com/zh-tw/sysinternals/downloads/pstools)
+
 [net指令使用](http://jon-and-jane.blogspot.com/2017/05/blog-post.html)
+
 [解決拒絕存取](https://blog.twtnn.com/2013/08/pstools-win7hang.html)
+
 [psexec參數](https://blog.yowko.com/psexec/)
+
+[CMD三種下載方法](http://sky.candy.moe/2013/06/28/cmd-download-http-wget-vbs/)
+
+[CMD創建文件常用指令](https://blog.csdn.net/sunjinshengli/article/details/53557684)
